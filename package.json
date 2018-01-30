@@ -182,7 +182,10 @@
         "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     },
-    "testPathIgnorePatterns": ["__tests__/setupTests.js"],
+    "testPathIgnorePatterns": [
+      "__tests__/testHelpers.js",
+      "__tests__/setupTests.js"
+    ],
     "unmockedModulePathPatterns": [
       "node_modules/react/",
       "node_modules/enzyme/"
