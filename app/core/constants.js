@@ -17,6 +17,7 @@ export const EXPLORERS = {
 export const ROUTES = {
   HOME: '/',
   DASHBOARD: '/dashboard',
+  SEND: '/send',
   RECEIVE: '/receive',
   CREATE_WALLET: '/create',
   ENCRYPT_KEY: '/encrypt-key',

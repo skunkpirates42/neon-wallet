@@ -20,7 +20,6 @@ type Props = {
   neoPrice: number,
   gasPrice: number,
   currencyCode: string,
-  showSendModal: Function,
   showTokenSaleModal: Function
 }
 
@@ -29,7 +28,6 @@ const Sidebar = ({
   neoPrice,
   gasPrice,
   currencyCode,
-  showSendModal,
   showTokenSaleModal
 }: Props) => (
   <div className={classNames(styles.container, className)}>
@@ -51,9 +49,9 @@ const Sidebar = ({
       </Tooltip>
 
       <Tooltip title='Send' position='right'>
-        <a id='send' className={styles.navItem} onClick={showSendModal}>
+        <NavLink id='send' exact to={ROUTES.SEND} className={styles.navItem} activeClassName={styles.active}>
           <SendIcon />
-        </a>
+        </NavLink>
       </Tooltip>
 
       <Tooltip title='Receive' position='right'>

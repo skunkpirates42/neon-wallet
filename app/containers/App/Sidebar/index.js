@@ -16,7 +16,6 @@ const mapPricesDataToProps = ({ NEO, GAS }) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  showSendModal: () => dispatch(showModal(MODAL_TYPES.SEND)),
   showTokenSaleModal: () => dispatch(showModal(MODAL_TYPES.ICO))
 })
 
