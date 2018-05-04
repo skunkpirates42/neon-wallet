@@ -2,7 +2,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { compose } from 'recompose'
-import { withCall, withRecall, withProgressComponents, alreadyLoadedStrategy, progressValues } from 'spunky'
+import { withCall, withRecall, withProgress, withProgressComponents, alreadyLoadedStrategy, progressValues } from 'spunky'
 
 import appActions from '../../actions/appActions'
 import authActions from '../../actions/authActions'
@@ -45,6 +45,7 @@ export default compose(
   withCall(networkActions),
   withAuthData(),
   withNetworkData(),
+  withProgress(networkActions, { propName: 'networkProgress' }),
   withProgressComponents(networkActions, {
     [LOADING]: Loading,
     [FAILED]: Failed
@@ -55,6 +56,7 @@ export default compose(
   // Fetch application data based upon the selected network.  Reload data when the network changes.
   withCall(appActions),
   withRecall(appActions, ['networkId']),
+  withProgress(appActions, { propName: 'appProgress' }),
   withProgressComponents(appActions, {
     [LOADING]: Loading,
     [FAILED]: Failed
@@ -66,6 +68,7 @@ export default compose(
   withCurrencyData(),
   withCall(pricesActions),
   withRecall(pricesActions, ['currency']),
+  withProgress(pricesActions, { propName: 'pricesProgress' }),
   withProgressComponents(pricesActions, {
     [LOADING]: Loading,
     [FAILED]: Failed
