@@ -19,6 +19,7 @@ test.before(async () => {
 })
 
 test.after(async () => {
+  console.log('after html:', await app.client.getHTML('body'))
   if (app && app.isRunning()) {
     await app.stop()
   }
@@ -30,24 +31,35 @@ function timeout (ms) {
 
 test.serial('should login successfully and switch networks', async t => {
   // Go to login page
+  console.log('one')
+  console.log('html:', await app.client.getHTML('body'))
   await app.client.waitUntilTextExists('#home', 'Login', 60000)
+  console.log('two')
   await app.client.click('input[value="Saved wallet"]')
+  console.log('three')
   await app.client.click('div[aria-label="Private key"]')
+  console.log('four')
 
   // Enter Wif
   await app.client.setValue('input[type="password"]', 'KxB52D1FGe5xBn6YeezNwj7grhkHZxq7bv2tmaCPoT4rxApMwMvU')
+  console.log('five')
 
   // Click on login btn
   await app.client.click('#loginButton')
+  console.log('six')
 
   // Check that the default network is MainNet
   t.is(await app.client.getValue('#network .networkSelector'), '1')
+  console.log('seven')
 
   // Check that MainNet data has loaded
   await app.client.waitUntilTextExists('#amountNeo', '0', 60000)
+  console.log('eight')
 
   await app.client.$('#network .networkSelector').selectByValue('2')
+  console.log('nine')
   t.is(await app.client.getValue('#network .networkSelector'), '2')
+  console.log('ten')
 })
 
 test.serial('should show correct balance', async t => {
