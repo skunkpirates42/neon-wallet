@@ -21,6 +21,12 @@ const createFetch = (symbol: SymbolType, currency: string, call: string, options
       fsym: toUpper(symbol),
       tsym: toUpper(currency)
     }
+  }).then((response) => {
+    console.log('axios success!', response)
+    return response
+  }).catch((error) => {
+    console.log('axios error!', error)
+    throw error
   })
 }
 
