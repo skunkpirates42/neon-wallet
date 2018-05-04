@@ -8,7 +8,7 @@ import appActions from '../../actions/appActions'
 import authActions from '../../actions/authActions'
 import accountActions from '../../actions/accountActions'
 import accountsActions from '../../actions/accountsActions'
-import blockHeightActions from '../../actions/blockHeightActions'
+// import blockHeightActions from '../../actions/blockHeightActions'
 import priceHistoryActions from '../../actions/priceHistoryActions'
 import settingsActions from '../../actions/settingsActions'
 import contactsActions from '../../actions/contactsActions'
@@ -61,7 +61,7 @@ export default compose(
   withCall(appActions),
   withRecall(appActions, ['networkId']),
   withProgress(accountsActions, { propName: 'accountsProgress' }),
-  withProgress(blockHeightActions, { propName: 'blockHeightProgress' }),
+  // withProgress(blockHeightActions, { propName: 'blockHeightProgress' }),
   withProgress(priceHistoryActions, { propName: 'priceHistoryProgress' }),
   withProgress(settingsActions, { propName: 'settingsProgress' }),
   withProgress(appActions, { propName: 'appProgress' }),
