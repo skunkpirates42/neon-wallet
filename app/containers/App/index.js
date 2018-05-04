@@ -7,6 +7,10 @@ import { withCall, withRecall, withProgress, withProgressComponents, alreadyLoad
 import appActions from '../../actions/appActions'
 import authActions from '../../actions/authActions'
 import accountActions from '../../actions/accountActions'
+import accountsActions from '../../actions/accountsActions'
+import blockHeightActions from '../../actions/blockHeightActions'
+import priceHistoryActions from '../../actions/priceHistoryActions'
+import settingsActions from '../../actions/settingsActions'
 import contactsActions from '../../actions/contactsActions'
 import networkActions from '../../actions/networkActions'
 import pricesActions from '../../actions/pricesActions'
@@ -56,6 +60,10 @@ export default compose(
   // Fetch application data based upon the selected network.  Reload data when the network changes.
   withCall(appActions),
   withRecall(appActions, ['networkId']),
+  withProgress(accountsActions, { propName: 'accountsProgress' }),
+  withProgress(blockHeightActions, { propName: 'blockHeightProgress' }),
+  withProgress(priceHistoryActions, { propName: 'priceHistoryProgress' }),
+  withProgress(settingsActions, { propName: 'settingsProgress' }),
   withProgress(appActions, { propName: 'appProgress' }),
   withProgressComponents(appActions, {
     [LOADING]: Loading,
